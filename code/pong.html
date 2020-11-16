@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+	
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Pong</title>
+
+	<!-- Basic styling, centering the canvas -->
+	<style>
+	@import url("sf_distant_galaxy_regular/stylesheet.css");
+
+		html , body{
+			scroll-behavior: smooth;
+			height: 100000px; 
+			overflow: hidden;
+			background-color: #F5EC2B;
+		}
+		
+		#myBtn3{
+			display: block;
+			
+			position: absolute;
+			top: 86%;
+			left: 22%;
+			
+		}
+		#myBtn4{
+			display: block;
+			
+			position: absolute;
+			top: 86%;
+			left: 75%;
+			
+		}	#myBtn5{
+			display: block;
+			
+			position: absolute;
+			top: 8%;
+			left: 75%;
+			
+		}	#myBtn6{
+			display: block;
+			
+			position: absolute;
+			top: 8%;
+			left: 22%;
+			
+		}	#myBtn7{
+			display: block;
+			
+			position: absolute;
+			top: 93%;
+			left: 48.5%;
+			
+		}	#myBtn8{
+			display: block;
+			
+			position: absolute;
+			top: 150%;
+			left: 45.5%;
+			
+		}#myBtn9{
+			display: block;
+			
+			position: absolute;
+			top: 150%;
+			left: 50.5%;
+			
+		}
+	canvas {
+		
+		display: block;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+		img{
+			  
+		position: absolute;
+ 			
+			width: 60%;
+			margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		}
+		.modal-content{
+			font-family: "sf distant galaxy regular";
+			background-color: transparent;
+			color: white;
+			height: 50%;
+			background-image: url("images/pong-pause.gif");
+			background-position: center;
+			
+		
+		}
+		
+		.modal-title{
+    font-family: "sf distant galaxy regular";
+			padding: 50px;
+			height: 50%;
+		}
+		
+		.modal-dialog{
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			width: 50%;
+			
+		}
+		#over{
+				
+  position: fixed; 
+  display: none; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2; 
+  
+
+			
+		}
+		
+		video{
+			background-color: black;
+			position: absolute;
+ 			width: 40%;
+			height: 60%;
+			margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0.5;
+		}
+		#over2{
+				
+  position: absolute;
+  margin: auto;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2; 
+  background-color: rgba(0,0,0,0.5);
+  width: 40%;
+  height: 65%;
+   
+
+			
+		}
+		#play{
+			cursor: pointer;
+			width: 20%;
+			height: 25%;
+		}
+		
+		
+		section{
+			min-height: 100vh;
+	
+			
+		}
+	
+		h1{
+			font-family: 'Montserrat', sans-serif;
+
+		}
+		#img{
+    background-image: url("images/p77nmnktfl021.jpg");
+   
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    border-radius: 10px;
+    height: 500px;
+	
+	border-bottom: 12px double #009688;
+	
+		}
+		
+	
+		#rect{
+			
+
+		  text-align: left;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -70%);
+color: white;
+		}	#img2{
+    background-image: url("images/skyrim.jpg");
+   
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    border-radius: 10px;
+    height: 500px;
+
+	border-top: 12px double #009688;
+	
+		}
+		
+	
+		#rect2{
+			
+
+		  text-align: left;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -70%);
+color: white;
+		}
+		h1{
+    color: #F5EC2B;
+    text-shadow: 5px 5px #4F3D3D;
+						 background-image: -webkit-linear-gradient(0deg,rgba(0,150,136,1.00) 0%,rgba(1,1,1,0.00) 100%,rgba(1,1,1,1.00) 100%);
+    background-image: -moz-linear-gradient(0deg,rgba(0,150,136,1.00) 0%,rgba(1,1,1,0.00) 100%,rgba(1,1,1,1.00) 100%);
+    background-image: -o-linear-gradient(0deg,rgba(0,150,136,1.00) 0%,rgba(1,1,1,0.00) 100%,rgba(1,1,1,1.00) 100%);
+    background-image: linear-gradient(90deg,rgba(0,150,136,1.00) 0%,rgba(1,1,1,0.00) 100%,rgba(1,1,1,1.00) 100%);
+		}
+
+		p{
+			 text-align: justify;
+  			text-justify: inter-word;
+			font-family: 'Montserrat', sans-serif;
+			 color: #F5EC2B;
+	
+    text-shadow: 5px 5px #4F3D3D;
+						 background-image: -webkit-linear-gradient(0deg,rgba(0,150,136,1.00) 0%,rgba(1,1,1,0.00) 100%,rgba(1,1,1,1.00) 100%);
+    background-image: -moz-linear-gradient(0deg,rgba(0,150,136,1.00) 0%,rgba(1,1,1,0.00) 100%,rgba(1,1,1,1.00) 100%);
+    background-image: -o-linear-gradient(0deg,rgba(0,150,136,1.00) 0%,rgba(1,1,1,0.00) 100%,rgba(1,1,1,1.00) 100%);
+    background-image: linear-gradient(90deg,rgba(0,150,136,1.00) 0%,rgba(1,1,1,0.00) 100%,rgba(1,1,1,1.00) 100%);
+		}
+		
+'		#l{
+'			
+'			  animation: mymove 5s;
+'  			perspective: 200px;
+'			position: relative;
+'			
+'		}
+'		@keyframes mymove {
+'			0% {perspective: 1111110px;}
+'  			50% {perspective: 100px;}
+'			100% {perspective: 1111110px;}
+'}
+'		
+'		#m1{
+'			  position: absolute;
+'			 transform : rotate3D(21,2,2,1435deg);
+'		}
+'		#m2{
+'			 position: absolute;
+'			 transform : rotate3D(21,2,2,435deg);
+'		}
+	</style>
+</head>
+<body>
+		
+<div id="l">
+	
+	
+		<div id="m1">
+	 <section id="1">
+	<div class="con">
+		<img src="images/pong_img.png">
+		<button type="button" id="myBtn3" class="w3-button w3-xlarge w3-circle w3-teal" style="width: 3%; height: 6%"><img src="images/img_60312.png" style="width: 100%; height: 100%"></button>
+		<button type="button" id="myBtn4" class="w3-button w3-xlarge w3-circle w3-teal" style="width: 3%; height: 6%"><img src="images/ed68358ee8a0587ce92543e133beadc8.png" style="width: 100%; height: 100%"></button>
+		<button type="button" id="myBtn5" class="w3-button w3-xlarge w3-circle w3-teal" style="width: 3%; height: 6%"><img src="images/mute.svg" id="change" style="width: 100%; height: 100%"></button>
+		<button type="button" id="myBtn6" class="w3-button w3-xlarge w3-circle w3-teal" style="width: 3%; height: 6%"><img src="images/scores.png" style="width: 100%; height: 100%"></button>
+
+
+	</div>
+	
+	<div id="over2" data-aos="fade-in">
+		
+	<img src="images/pause.png"  id="play">
+	</div>
+	
+<div id="over">
+<video src="images/3 2 1 GO! Smash Ultimate Green Screen HD (1).mp4" id="vid">
+	</video>
+</div>
+<canvas id="mycanva"></canvas>
+
+		
+
+	
+<audio src="audio/8bit_status_74.mp3" id="audio1"></audio>
+<audio src="audio/8bit_status_114.mp3" id="audio2"></audio>
+<audio src="audio/8-bit-pong-sound_WM.mp3" id="audio3"></audio>
+<audio src="audio/043289731_prev.wav" id="audio4"></audio>
+	
+ 
+
+
+	
+<div class="container">
+ 
+  <!-- Trigger the modal with a button -->
+
+ 
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <h4 class="modal-title">PAUSE</h4>
+        </div>
+        <div class="modal-body">
+          <p id="text"></p>
+		  <label for="ran">Chaos Effects ?</label>
+		  <input type="checkbox" id="ran">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<a href="#2" id="sc">
+	<button type="button" id="myBtn7" class="w3-button w3-xlarge w3-circle w3-teal" style="width: 3%; height: 6%"><img src="images/down.svg" style="width: 100%; height: 100%"></button>
+</a>
+</section>
+	</div>
+	
+
+	<div id="m2">
+<section id="2">
+	
+	
+	<div id="img" data-aos="zoom-in-down">
+	
+			<div id="rect">
+		<h1 style="font-size: 6em" data-aos="zoom-in-down">Rules</h1>
+		<br>
+		<h1 style="font-size: 6em" data-aos="zoom-in-down">And Regulations</h1>
+				</div>
+		
+		
+	</div>
+	
+	
+	<div id="img2" data-aos="zoom-in-down">
+	
+			<div id="rect2">
+		<p style="font-size: 2em">Use The Arrow Keys To Move The Player Paddle (left) . If you want to pause the game click the <span style="color: red">PAUSE BUTTON</span> <br> in the left-bottom side.</p>
+		<p style="font-size: 2em">For Restarting the game, press the bottom-right button to reset.To see your score press the bookmark button placed at the top-left hand corner of the game board.</p>
+		<p style="font-size: 2em">To mute press the top-right hand corner of the game board.</p>
+				</div>
+		
+		
+	</div>
+	
+	
+	    	<button type="button" id="myBtn9" class="w3-button w3-xlarge w3-circle w3-teal" style="width: 3%; height: 6%"><a href="https://gulshan45.github.io/about/"><img src="images/about.png" style="width: 100%; height: 100%"></</a></button>
+
+	
+	<a href="#1" id="sc">
+			<button type="button" id="myBtn8" class="w3-button w3-xlarge w3-circle w3-teal" style="width: 3%; height: 6%"><img src="images/up.svg" style="width: 100%; height: 100%"></button>
+
+	</a>
+	</section>
+	</div>
+		
+		
+</div>	
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+	AOS.init();
+
+function togglePause()
+{
+    if (!paused)
+    {
+      paused = true;
+    } else if (paused)
+    {
+	
+	
+
+       paused= false;
+    }
+
+}
+var
+
+/**
+ * Constants
+ */
+WIDTH  = 700,
+HEIGHT = 600,
+
+sound = document.getElementById("audio4"),
+sound1 = document.getElementById("audio1"),
+sound2 = document.getElementById("audio2"),
+sound3 = document.getElementById("audio3"),
+		
+mute = document.getElementById("mute"),
+
+	
+pi = Math.PI,
+
+UpArrow   = 38,
+DownArrow = 40,
+paused = false,
+	deathflag = false,
+p = 80,
+/**
+ * Game elements
+ */
+canvas,
+ctx,
+keystate,
+text1 = 0,
+text2 = 0,
+// function for player pause
+
+
+/**
+ * The player paddle
+ * 
+ * @type {Object}
+ */
+player = {
+	x: null,
+	y: null,
+
+	width:  20,
+	height: 100,
+	
+	
+	/**
+	 * Update the position depending on pressed keys
+	 */
+	update: function() {
+		if(document.getElementById("ran").checked){
+		
+			
+			if(t >= 0.5){
+				if (keystate[DownArrow]) this.y -= 7;
+				if (keystate[UpArrow]) this.y += 7;
+		
+				
+			}
+			else{	
+				if (keystate[UpArrow]) this.y -= 7;
+				if (keystate[DownArrow]) this.y += 7;
+			}
+		}
+		else{
+		if (keystate[UpArrow]) this.y -= 7;
+				if (keystate[DownArrow]) this.y += 7;
+		}
+		// keep the paddle inside of the canvas
+		this.y = Math.max(Math.min(this.y, HEIGHT - this.height), 0);
+	},
+
+	/**
+	 * Draw the player paddle to the canvas
+	 */
+	draw: function() {
+		ctx.fillRect(this.x, this.y, this.width, this.height);
+	}
+},
+
+/**
+ * The ai paddle
+ * 
+ * @type {Object}
+ */
+ai = {
+	x: null,
+	y: null,
+
+	width:  20,
+	height: 100,
+
+	/**
+	 * Update the position depending on the ball position
+	 */
+	update: function() {
+		// calculate ideal position
+		var desty = ball.y - (this.height - ball.side)*0.5;
+		// ease the movement towards the ideal position
+		this.y += (desty - this.y) * 0.1;
+		// keep the paddle inside of the canvas
+		this.y = Math.max(Math.min(this.y, HEIGHT - this.height), 0);
+	},
+
+	/**
+ 	 * Draw the ai paddle to the canvas
+	 */
+	draw: function() {
+		ctx.fillRect(this.x, this.y, this.width, this.height);
+	}
+},
+
+	
+	
+	
+	
+	
+	
+/**	
+ * The ball object
+ * 
+ * @type {Object}
+ */
+ball = {
+	x:   null,
+	y:   null,
+	vel: null,
+
+	side:  10,
+	speed: 12,
+
+	/**
+	 * Serves the ball towards the specified side
+	 * 
+	 * @param  {number} side 1 right
+	 *                       -1 left
+	 */
+	
+
+
+// expected output: starting timer...
+
+
+	serve: function(side) {
+		//wait		
+		r = Math.random();
+		
+		if(document.getElementById("ran").checked){
+			
+			if(r >= 0.7)
+			this.side = 20;
+			else
+			this.side = 10;
+			
+			
+			if(r >= 0.5){
+				this.speed = 20;
+			}
+			else{
+				this.speed = 12;
+			}
+		}
+		else{
+			this.side = 10;
+		}
+		
+		this.x = side===1 ? player.x+player.width : ai.x - this.side;
+		this.y = (HEIGHT - this.side)*r;
+		// calculate out-angle, higher/lower on the y-axis =>
+		// steeper angle
+		var phi = 0.1*pi*(1 - 2*r);
+		// set velocity direction and magnitude
+		this.vel = {
+			x: side*this.speed*Math.cos(phi),
+			y: this.speed*Math.sin(phi)
+			
+			
+			
+		}
+		
+		
+	},
+	
+
+
+	/**
+	 * Update the ball 	},
+nd keep it within the canvas
+	 */
+	update: function() {
+		// update position with current velocity
+		this.x += this.vel.x;
+		this.y += this.vel.y;
+		// check if out of the canvas in the y direction
+		if (0 > this.y || this.y+this.side > HEIGHT) {
+			// calculate and add the right offset, i.e. how far
+			// inside of the canvas the ball is
+			var offset = this.vel.y < 0 ? 0 - this.y : HEIGHT - (this.y+this.side);
+			this.y += 2*offset;
+			// mirror the y velocity
+			this.vel.y *= -1;
+		}
+		// helper function to check intesectiont between two
+		// axis aligned bounding boxex (AABB)
+		var AABBIntersect = function(ax, ay, aw, ah, bx, by, bw, bh) {
+			return ax < bx+bw && ay < by+bh && bx < ax+aw && by < ay+ah;
+		};
+
+		// check againts target paddle to check collision in x
+		// direction
+		var pdle = this.vel.x < 0 ? player : ai;
+		if (AABBIntersect(pdle.x, pdle.y, pdle.width, pdle.height,
+				this.x, this.y, this.side, this.side)
+		) {	
+			// set the x position and calculate reflection angle
+			this.x = pdle===player ? player.x+player.width : ai.x - this.side;
+			var n = (this.y+this.side - pdle.y)/(pdle.height+this.side);
+			var phi = 0.25*pi*(2*n - 1); // pi/4 = 45
+			// calculate smash value and update velocity
+			var smash = Math.abs(phi) > 0.2*pi ? 1.5 : 1;
+			if(smash > 1){
+				soundflag = true;
+				sound1.pause();
+				sound1.currentTime = 0;
+				sound1.play();
+				soundflag = false;
+			}
+			else{
+				soundflag = true;
+				sound.pause();
+				sound.currentTime = 0;
+				sound.play();
+				soundflag = false;
+				
+			}
+			this.vel.x = smash*(pdle===player ? 1 : -1)*this.speed*Math.cos(phi);
+			this.vel.y = smash*this.speed*Math.sin(phi);
+		}
+
+		// reset the ball when ball outside of the canvas in the
+		// x direction
+		if (0 > this.x+this.side){
+			
+			text2 += 1;
+			this.serve(pdle===player ? 1 : -1);
+			deathflag = true;
+				sound2.pause();
+				sound2.currentTime = 0;
+				sound2.play();
+				soundflag = false;
+		
+		}
+		else if(this.x > WIDTH){
+			text1 += 1;
+			this.serve(pdle===player ? 1 : -1);
+			soundflag = true;
+				sound2.pause();
+				sound2.currentTime = 0;
+				sound2.play();
+				soundflag = false;
+		
+		}
+	},
+
+	/**
+	 * Draw the ball to the canvas
+	 */
+	draw: function() {
+		ctx.fillStyle = "white";
+		ctx.beginPath();
+		ctx.arc(this.x, this.y, this.side, 0 , 2 * Math.PI , false);
+		ctx.closePath();
+		ctx.fill();
+	}
+};
+
+	
+		
+
+	
+/**
+ * Starts the game
+ */
+function main() {
+	// create, initiate and append game canvas
+	canvas = document.getElementById("mycanva");
+	if(screen.width < 1500){
+		
+		WIDTH = 500;
+		HEIGHT = 450;	
+	}
+	canvas.width = WIDTH;
+	canvas.height = HEIGHT;
+	ctx = canvas.getContext("2d");
+	document.body.appendChild(canvas);
+
+	keystate = {};
+	
+	// keep track of keyboard presses
+	document.addEventListener("keydown", function(evt) {
+		keystate[evt.keyCode] = true;
+	});
+	document.addEventListener("keyup", function(evt) {
+		delete keystate[evt.keyCode];
+	});
+
+	
+			
+		$(document).ready(function(){
+
+  		$("#myBtn3").click(function(){
+    	document.getElementById("over2").style.display = "block";
+	  		togglePause();
+	
+  });
+			
+		$("#myBtn6").click(function(){
+			
+			if(document.getElementById("over2").style.display === "block")
+				{
+					
+				}
+			else{
+	  		togglePause();
+			}
+    		$("#myModal3").modal({backdrop: "static"});
+	  		
+		document.getElementById("text").innerHTML = "The Score Is - " + text1;
+  });
+});
+	
+	$(document).ready(function(){
+
+  		$("#close").click(function(){
+    		if(document.getElementById("over2").style.display === "block")
+				{
+					
+				}
+			else{
+	  		
+			
+			document.getElementById("over").style.display = "block";
+			document.getElementById("vid").play();
+			setTimeout(function(){
+				togglePause();
+				document.getElementById("over").style.display = "none";
+			
+				
+			},4000);
+			
+			}
+	  		
+  });
+});
+	
+	
+	
+	
+		$(document).ready(function(){
+			
+			
+			
+  		$("#sc").click(function(){
+    		if(document.getElementById("over2").style.display === "block")
+				{
+					
+				}
+			else{
+				document.getElementById("over2").style.display = "block";
+	  		togglePause();
+			}
+	  		function enableScroll() { 
+            window.onscroll = function() {}; 
+        } 
+  });
+});
+	
+	
+	
+		$(document).ready(function(){
+
+  		$("#play").click(function(){
+			
+			
+			function disableScroll() { 
+            // Get the current page scroll position 
+            scrollTop =  
+              window.pageYOffset || document.documentElement.scrollTop; 
+            scrollLeft =  
+              window.pageXOffset || document.documentElement.scrollLeft, 
+  
+                // if any scroll is attempted, 
+                // set this to the previous value 
+                window.onscroll = function() { 
+                    window.scrollTo(scrollLeft, scrollTop); 
+                }; 
+        } 
+    	
+			document.getElementById("over2").style.display = "none";
+			document.getElementById("over").style.display = "block";
+			document.getElementById("vid").play();
+			setTimeout(function(){
+				togglePause();
+				document.getElementById("over").style.display = "none";
+				
+				
+			},4000);
+			
+			
+	  		
+  });
+});
+	
+	
+	
+		$(document).ready(function(){
+			
+			
+			
+  		$("#myBtn4").click(function(){
+    	
+	  		init();
+  });
+});
+	
+	
+music();
+	
+	
+	init(); // initiate game objects
+
+	// game loop function
+	var loop = function() {
+
+		if(!paused)
+		{update();}	
+		draw();
+		
+		window.requestAnimationFrame(loop, canvas);
+	};
+	window.requestAnimationFrame(loop, canvas);
+}
+
+/**
+ * Initatite game objects and set start positions
+ */
+function init() {
+	player.x = player.width;
+	player.y = (HEIGHT - player.height)/2;
+
+	ai.x = WIDTH - (player.width + ai.width);
+	ai.y = (HEIGHT - ai.height)/2;
+
+	text1 = 0;
+	text2 = 0;
+	
+	ball.serve(1);
+	t = Math.random();
+	
+	
+}
+
+/**	ball.serve(2);
+gam * Update all game objects
+()*/ function update() {
+	ball.update();
+	player.update();
+	ai.update();
+	
+}
+
+/**
+ * Clear canvas and draw all game objects and net
+ */
+function draw() {
+	ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+	ctx.save();
+
+	
+	
+	ctx.fillStyle = "#FFFF";
+	
+	
+	ctx.fillStyle = "white";
+	ctx.font = "small-caps 40px Arial";
+	ctx.fillText(text1.toString(),WIDTH/4,HEIGHT/11);
+	
+	
+	ctx.fillStyle = "white";
+	ctx.font = "small-caps 40px Arial";
+	ctx.fillText(text2.toString(),3*WIDTH/4,HEIGHT/11);
+
+	ball.draw();
+	player.draw();
+	ai.draw();
+	
+	
+	// draw the net
+	var w = 4;
+	var x = (WIDTH - w)*0.5;
+	var y = 0;
+	var step = HEIGHT/20; // how many net segments
+	while (y < HEIGHT) {
+		ctx.fillRect(x, y+step*0.25, w, step*0.5);
+		y += step;
+	}
+
+	ctx.restore();
+}
+
+function music(){
+	
+	
+	$(document).ready(function(){
+			
+			
+			
+  		$("#myBtn5").click(function(){
+		if (document.getElementById("change").getAttribute('src') === 'images/unmute.svg'){
+		document.getElementById("change").src = "images/mute.svg";
+		sound.volume = 1;
+		sound1.volume = 1;
+		sound2.volume = 1;
+		sound3.volume = 1;
+		}
+			
+		else if (document.getElementById("change").getAttribute('src') === 'images/mute.svg'){
+		document.getElementById("change").src = "images/unmute.svg";
+		sound.volume = 0;
+		sound1.volume = 0;
+		sound2.volume = 0;
+		sound3.volume = 0;
+		}
+		
+	});		
+  	
+	
+});
+}
+	document.getElementById("over2").style.display = "block";
+	  		togglePause();
+			main();
+		
+		
+	  	
+
+// start and run the game
+
+	
+	
+
+</script>
+	 
+</body>
+</html>
