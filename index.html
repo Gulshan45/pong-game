@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    
+  <head>
+      <title>PONG GAME</title>
+    <meta charset="utf-8">
+      
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" 
+    integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      
+      <style>
+      
+          .jumbotron {
+              height: 100%;
+              background-image: url(background.jpg);
+              background-repeat: no-repeat;
+              background-size: 1830px 910px;
+              text-align: center;
+              margin-top: 50px;
+              padding: 5em inherit;
+          }
+
+          #headFont1{
+              color: darkred;
+          }
+
+          #headFont2{
+              color: blue;
+              font-weight: bold;
+              font-style: italic;
+              margin-top: 30px;
+          }
+
+          
+          #email {
+              
+              width: 300px;
+              
+          }
+          
+          #aboutGame {
+              
+              text-align: center;
+              margin-top:50px;
+              margin-bottom: 50px;
+              
+          }
+          
+          .card-img-top {
+              
+              width: 100%;
+              
+          }
+          
+          #footer {
+              
+              background-color: aqua;
+              padding-top: 150px;
+              margin-top: 50px;
+              text-align: center;
+              padding-bottom: 150px;
+          }
+          
+          body {
+              
+              position: relative;
+              
+          }
+
+          #intro {
+                display: block;
+                box-shadow: 5px 6px 5px 5px #778899;
+                border-radius: 10px;
+                }
+
+            #about {
+                text-align: center;
+                margin-top: 120px;
+            }
+
+            .image {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                width: 90px;
+                height: 95px;
+            }
+
+            .image {
+                border-radius: 50%;
+                border-top-left-radius: 50% 50%;
+                border-top-right-radius: 50% 50%;
+                border-bottom-right-radius: 50% 50%;
+                border-bottom-left-radius: 50% 50%;
+            }
+
+            #signUp{
+                align-items: center;
+                margin-top: 212px;
+                margin-bottom: 174px;
+            }
+
+            .img{
+                width: 230px;
+                height: 230px;
+            }
+                
+      </style>
+      
+  </head>
+    
+  <body data-spy="scroll" data-target="#navbar" data-offset="150">
+      
+        <nav class="navbar navbar-light bg-faded navbar-fixed-top" id="navbar">
+          <a class="navbar-brand" href="#">Pong</a>
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#jumbotron">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#aboutGame">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Developer</a>
+            </li>
+          </ul>
+          <form class="form-inline pull-xs-right" action="pong.html">
+            <input class="form-control" type="email" placeholder="Email">
+              <input class="form-control" type="password" placeholder="Password">
+            <button class="btn btn-success" type="submit">Login</button>
+          </form>
+        </nav>
+
+        <div class="jumbotron" id="jumbotron">
+          <h1 class="display-3" id="headFont1">Welcome To Pong Game</h1>
+          <p class="lead" id="headFont2">The best time to play ping pong is when you know – Winning is not everything!</p>
+          <hr class="m-y-2">
+        
+          <div id="signUp" class="row">
+                <a href="signup.html" target="_blank">
+                    <img class="img" src="register.jpg">
+                </a>
+          </div>
+        </div>
+      
+      <div class="container">
+        <div class="row" id="aboutGame">
+          
+            <h1>About This Game</h1>          
+          </div>
+          <p>
+          Pong is a table tennis-themed arcade video game, featuring simple two-dimensional graphics, 
+          manufactured by Atari and originally released in 1972. It was one of the earliest arcade video 
+          games; it was created by Allan Alcorn as a training exercise assigned to him by Atari co-founder 
+          Nolan Bushnell, but Bushnell and Atari co-founder Ted Dabney were surprised by the quality of 
+          Alcorn's work and decided to manufacture the game. Bushnell based the game's concept on an 
+          electronic ping-pong game included in the Magnavox Odyssey, the first home video game console. 
+          In response, Magnavox later sued Atari for patent infringement.
+          </p>
+
+          <p>
+            Pong is a two-dimensional sports game that simulates table tennis. The player controls an 
+            in-game paddle by moving it vertically across the left or right side of the screen. They 
+            can compete against another player controlling a second paddle on the opposing side. Players 
+            use the paddles to hit a ball back and forth. The goal is for each player to reach eleven 
+            points before the opponent; points are earned when one fails to return the ball to the other
+          </p>
+          <h3>Development History</h3>
+          <p>
+            Pong was the first game developed by Atari.After producing Computer Space, Bushnell 
+            decided to form a company to produce more games by licensing ideas to other companies. The 
+            first contract was with Bally Manufacturing Corporation for a driving game. Soon after 
+            the founding, Bushnell hired Allan Alcorn because of his experience with electrical engineering 
+            and computer science; Bushnell and Dabney also had previously worked with him at Ampex. Prior 
+            to working at Atari, Alcorn had no experience with video games. To acclimate Alcorn to creating 
+            games, Bushnell gave him a project secretly meant to be a warm-up exercise. Bushnell told
+             Alcorn that he had a contract with General Electric for a product, and asked Alcorn to create a 
+             simple game with one moving spot, two paddles, and digits for score keeping.In 2011, Bushnell 
+             stated that the game was inspired by previous versions of electronic tennis he had played before; 
+             Bushnell played a version on a PDP-1 computer in 1964 while attending college. However, Alcorn has 
+             claimed it was in direct response to Bushnell's viewing of the Magnavox Odyssey's Tennis game.
+             In May 1972, Bushnell had visited the Magnavox Profit Caravan in Burlingame, California where he 
+             played the Magnavox Odyssey demonstration, specifically the table tennis game. Though he 
+             thought the game lacked quality, seeing it prompted Bushnell to assign the project to Alcorn.
+          </p>
+      </div>
+    
+      <div id="footer">
+      
+        <div class="row">
+          
+                <h1>Developer</h1>
+          </div>
+          <div class="container" id="about">
+            <div class="row">
+              <div class="col-sm-4" id="intro">
+                <img src="gul_img.jpeg" class="image" style="margin-top: 10px;">
+                <p style="margin-top: 15px;">GULSHAN KUMAR</p>
+                <p>2019UCO1667</p>
+              </div>
+          
+              <div class="col-sm-4"></div>
+          
+              <div class="col-sm-4" id="intro">
+                <img src="ineesh.jpeg" class="image" style="margin-top: 10px;">
+                <p style="margin-top: 15px;">INEESH RAINA</p>
+                <p>2019UCO1686</p>
+              </div>
+            </div>
+          </div>
+      
+      </div>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" 
+    integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+      
+  </body>
+    
+</html>
